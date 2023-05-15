@@ -16,3 +16,15 @@ def beauty(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+
+def fashion(request):
+    return render(request, 'fashion.html')
+
+
+
+def register(request):
+    # rlsqtqmvajrwjrkn
+    # mrutika96@gmail.com
+    return render(request, 'register.html')
+
