@@ -4,28 +4,30 @@
 {% block content %}
 <br>
 <div class="col-lg-12 form-inner-cont">
-    <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+    <form action="{% url 'create_user' %}" method="post" class="signin-form">
+        {{msg}}
+        {% csrf_token %}
         <!-- <div class="form-grids"> -->
             <div class="form-input ">
-                <input type="text" name="w3lName" id="w3lName" placeholder="Full Name"
+                <input type="text" name="fname" id="w3lName" placeholder="Full Name"
                     required="" />
             </div>
         <br>
 
             <div class="form-input">
-                <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Email"
+                <input type="email" name="email" id="w3lSubject" placeholder="Email"
                     required />
             </div>
             <br>
         
             <div class="form-input">
-                <input type="email" name="w3lSender" id="w3lSender" placeholder="Password"
+                <input type="password" name="passwd" id="w3lSender" placeholder="Password"
                     required />
             </div>
         <br>
 
             <div class="form-input">
-                <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Confirm Password"
+                <input type="password" name="cpasswd" id="w3lPhone" placeholder="Confirm Password"
                     required />
             </div>
         <!-- </div> -->

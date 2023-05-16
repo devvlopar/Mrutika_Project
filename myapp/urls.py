@@ -8,6 +8,8 @@ urlpatterns = [
     path('contact/', contact, name = 'contact'),
     path('fashion/', fashion, name = 'fashion'),
     path('register/', register, name = 'register'),
+    path('create_user/', create_user, name = 'create_user'),
+
 
 
 ]
