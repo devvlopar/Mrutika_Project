@@ -9,6 +9,12 @@ urlpatterns = [
     path('fashion/', fashion, name = 'fashion'),
     path('register/', register, name = 'register'),
     path('create_user/', create_user, name = 'create_user'),
+    path('otp/', otp, name = 'otp'),
+    path('login/', login, name = 'login'),
+    path('logout/', logout, name = 'logout'),
+
+
+
 
 
 
