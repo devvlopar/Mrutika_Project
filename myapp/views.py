@@ -19,7 +19,11 @@ def index(request):
     
 
 def beauty(request):
-    return render(request, 'beauty.html')
+    try:
+        u1 = User.objects.get(email = request.session['email'])
+        return render(request, 'beauty.html', {'userdata': u1})
+    except:
+        return render(request, 'beauty.html')
 
 
 def contact(request):
@@ -27,8 +31,11 @@ def contact(request):
 
 
 def fashion(request):
-    return render(request, 'fashion.html')
-
+    try:
+        u1 = User.objects.get(email = request.session['email'])
+        return render(request, 'fashion.html', {'userdata': u1})
+    except:
+        return render(request, 'fashion.html')
 
 
 def register(request):
@@ -103,3 +110,24 @@ def login(request):
 def logout(request):
     del request.session['email']
     return redirect('index')
+
+
+def add_blog(request):
+    try:
+        u1 = User.objects.get(email = request.session['email'])
+        if request.method == 'GET':
+            return render(request, 'add_blog.html', {'userdata': u1})
+        else:
+            # create(a = 1, 
+            # b = 2, 
+            # c = 3, 
+            # d = 4)
+            Blog.objects.create(
+                title = request.POST['title'], 
+                description = request.POST['des'],
+                category = request.POST['category'],
+                pic = request.FILES['pic']
+            )
+            return render(request, 'add_blog.html', {'msg': 'Successfully Added!!'})
+    except:
+        return redirect('login')
